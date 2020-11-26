@@ -18,7 +18,7 @@ class ScheduleController extends Controller {
         $employeeId = $request->input( 'userId' );
 
         if ( empty( $startDate ) || empty( $endDate ) || empty( $employeeId ) ) {
-            return false;
+            return response( 'Validation was not passed', 400 );
         }
 
         $employee = Employee::findOrFail( $employeeId );
