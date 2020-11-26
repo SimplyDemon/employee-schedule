@@ -15,6 +15,8 @@ class CreateVacationsTable extends Migration {
             $table->id();
             $table->date( 'start' );
             $table->date( 'end' );
+            $table->foreignId( 'employee_id' );
+            $table->foreign( 'employee_id' )->references( 'id' )->on( 'employee' )->onDelete( 'cascade' );
             $table->timestamps();
         } );
     }
