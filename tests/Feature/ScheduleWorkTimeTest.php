@@ -24,7 +24,7 @@ class ScheduleWorkTimeTest extends TestCase {
         ] );
 
         $response->assertOk();
-        $response->assertJson( json_decode( '{"schedule":[{"day":"2018-01-25","timeRanges":[{"start":"9:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-26","timeRanges":[{"start":"9:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-29","timeRanges":[{"start":"9:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-30","timeRanges":[{"start":"9:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-31","timeRanges":[{"start":"9:00","end":"12:00"},{"start":"13:00","end":"18:00"}]}]}', true ) );
+        $response->assertJson( json_decode( '{"schedule":[{"day":"2018-01-25","timeRanges":[{"start":"09:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-26","timeRanges":[{"start":"09:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-29","timeRanges":[{"start":"09:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-30","timeRanges":[{"start":"09:00","end":"12:00"},{"start":"13:00","end":"18:00"}]},{"day":"2018-01-31","timeRanges":[{"start":"09:00","end":"12:00"},{"start":"13:00","end":"18:00"}]}]}', true ) );
     }
 
     public function testNegative() {
