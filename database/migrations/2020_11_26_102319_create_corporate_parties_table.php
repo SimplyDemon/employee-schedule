@@ -13,8 +13,8 @@ class CreateCorporatePartiesTable extends Migration {
     public function up() {
         Schema::create( 'corporate_parties', function ( Blueprint $table ) {
             $table->id();
-            $table->date( 'start' );
-            $table->date( 'end' );
+            $table->dateTime( 'start' );
+            $table->dateTime( 'end' );
             $table->timestamps();
         } );
     }
