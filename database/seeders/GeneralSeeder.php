@@ -23,7 +23,7 @@ class GeneralSeeder extends Seeder {
         ] );
 
         $scheduleSecond = Schedule::create( [
-            'work_start'   => '9:00',
+            'work_start'   => '09:00',
             'work_end'     => '18:00',
             'dinner_start' => '12:00',
             'dinner_end'   => '13:00',
@@ -38,23 +38,24 @@ class GeneralSeeder extends Seeder {
             'schedule_id' => $scheduleSecond->id,
         ] );
 
-        Vacation::create( [
-            'start'       => '2018-01-11 00:00:00',
-            'end'         => '2018-01-25 00:00:00',
-            'employee_id' => $employeeFirst->id,
-        ] );
-        Vacation::create( [
-            'start'       => '2018-02-01 00:00:00',
-            'end'         => '2018-02-15 00:00:00',
-            'employee_id' => $employeeFirst->id,
-        ] );
+        foreach ( [ '2018', '2019', '2020' ] as $year ) {
+            Vacation::create( [
+                'start'       => $year . '-01-11 00:00:00',
+                'end'         => $year . '-01-25 00:00:00',
+                'employee_id' => $employeeFirst->id,
+            ] );
+            Vacation::create( [
+                'start'       => $year . '-02-01 00:00:00',
+                'end'         => $year . '-02-15 00:00:00',
+                'employee_id' => $employeeFirst->id,
+            ] );
 
-        Vacation::create( [
-            'start'       => '2018-02-01 00:00:00',
-            'end'         => '2018-03-01 00:00:00',
-            'employee_id' => $employeeSecond->id,
-        ] );
-
+            Vacation::create( [
+                'start'       => $year . '-02-01 00:00:00',
+                'end'         => $year . '-03-01 00:00:00',
+                'employee_id' => $employeeSecond->id,
+            ] );
+        }
         CorporateParty::create( [
             'start' => '2018-01-10 15:00:00',
             'end'   => '2018-01-11 00:00:00',
