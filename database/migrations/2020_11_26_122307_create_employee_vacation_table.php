@@ -4,22 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeeVocationTable extends Migration {
+class CreateEmployeeVacationTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up() {
-        Schema::create( 'employee_vocation', function ( Blueprint $table ) {
+        Schema::create( 'employee_vacation', function ( Blueprint $table ) {
             $table->id();
             $table->foreignId( 'employee_id' );
-            $table->foreignId( 'vocation_id' );
+            $table->foreignId( 'vacation_id' );
 
             $table->foreign( 'employee_id' )->references( 'id' )->on( 'employees' )->onDelete( 'cascade' );
-            $table->foreign( 'vocation_id' )->references( 'id' )->on( 'vocations' )->onDelete( 'cascade' );
+            $table->foreign( 'vacation_id' )->references( 'id' )->on( 'vacations' )->onDelete( 'cascade' );
 
-            $table->primary( [ 'employee_id', 'vocation_id' ] );
             $table->timestamps();
         } );
     }
@@ -30,6 +29,6 @@ class CreateEmployeeVocationTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists( 'employee_vocation' );
+        Schema::dropIfExists( 'employee_vacation' );
     }
 }
